@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио Анастасии - Веб-разработчик</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            line-height: 1.6;
+            color: #5a3d5c;
+            background: linear-gradient(135deg, #ffd6e7 0%, #ffc2d6 50%, #ff9ebb 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Шапка с меню */
+        header {
+            background-color: #d81b60;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(175, 10, 75, 0.3);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Основной контент */
+        main {
+            padding: 3rem 0;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(216, 27, 96, 0.15);
+            transition: transform 0.3s;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: #d81b60;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            border-bottom: 3px solid #ff9ebb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Герой секция */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #ff9ebb 0%, #ff85a8 100%);
+            color: white;
+            border-radius: 15px;
+        }
+        
+        .hero h1 {
+            color: white;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+        
+        /* О себе */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .about-icon {
+            text-align: center;
+            font-size: 4rem;
+            color: #d81b60;
+            margin-bottom: 1rem;
+        }
+        
+        /* Навыки (таблица) */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skills-table th, .skills-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ffc2d6;
+        }
+        
+        .skills-table th {
+            background-color: #d81b60;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .skills-table tr:nth-child(even) {
+            background-color: rgba(255, 194, 214, 0.3);
+        }
+        
+        .skills-table tr:hover {
+            background-color: rgba(255, 158, 187, 0.3);
+        }
+        
+        /* Контакты */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffc2d6 0%, #ffafcc 100%);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-item h3 {
+            color: #d81b60;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #5a3d5c;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #d81b60;
+            margin-bottom: 1rem;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #d81b60;
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8rem;
+            line-height: 50px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: white;
+            color: #d81b60;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-top: 1rem;
+            }
+            
+            .nav-links li {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+        
+        /* Декоративные элементы */
+        .decoration {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .circle-1 {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #ff4081;
+            top: 10%;
+            left: 5%;
+        }
+        
+        .circle-2 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #ff79b0;
+            bottom: 20%;
+            right: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration circle-1"></div>
+    <div class="decoration circle-2"></div>
+    
+    <!-- Шапка с меню -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Анастасия</div>
+                <ul class="nav-links">
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#skills">Навыки</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основное содержимое -->
+    <main class="container">
+        <!-- Герой секция -->
+        <section class="hero">
+            <h1>Добро пожаловать на мой сайт-портфолио</h1>
+            <p>Я начинающий веб-разработчик и программист, создающий современные и responsive веб-сайты</p>
+        </section>
+
+        <!-- Обо мне -->
+        <section id="about">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <div class="about-icon">👩‍💻</div>
+                <p>Привет! Меня зовут Анастасия, и я занимаюсь веб-разработкой совсем недавно. Моя страсть - создавать удобные и современные веб-сайты, которые решают реальные проблемы пользователей.</p>
+                <p>Я постоянно изучаю новые технологии, чтобы оставаться в курсе последних тенденций в веб-разработке. В свободное время люблю читать литературу и участвовать в IT-сообществах.</p>
+            </div>
+        </section>
+
+        <!-- Навыки -->
+        <section id="skills">
+            <h2>Мои навыки</h2>
+            <p>За время работы я освоила различные технологии и инструменты веб-разработки:</p>
+            <table class="skills-table">
+                <thead>
+                    <tr>
+                        <th>Технология</th>
+                        <th>Уровень владения</th>
+                        <th>Опыт</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>HTML/CSS</td>
+                        <td>Новичок</td>
+                        <td>Полгода</td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td>Продвинутый</td>
+                        <td>2 года</td>
+                    </tr>
+                    <tr>
+                        <td>Git</td>
+                        <td>Средний</td>
+                        <td>1 год</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Свяжитесь со мной для обсуждения вашего проекта:</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <h3>Email</h3>
+                    <p>Kubasova@mail.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Телефон</h3>
+                    <p>+7 (906) 922-50-06</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Адрес</h3>
+                    <p>г. Москва, ул. Большая Семеновская, д. 38</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" aria-label="VKontakte">VK</a>
+                    <a href="#" aria-label="Telegram">TG</a>
+                    <a href="#" aria-label="GitHub">GH</a>
+                </div>
+                <p class="copyright">© 2023 Анастасия Кубасова. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
